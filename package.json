@@ -12,6 +12,7 @@
     "copy": "source .env && rsync -qazP $DEPLOY_FILES $DEPLOY_TARGET"
   },
   "dependencies": {
+    "canvaskit-wasm": "^0.15.0",
     "fabric": "3.6.3",
     "fpsmeter": "0.3.1",
     "paper": "0.12.4",
@@ -19,5 +20,16 @@
     "pencil.js": "1.17.0",
     "pixi.js": "5.2.3",
     "two.js": "0.7.0-stable.1"
+  },
+  "devDependencies": {
+    "parcel-plugin-static-files-copy": "^2.3.1"
+  },
+  "staticFiles": {
+    "staticPath": [
+      {
+        "staticPath": "node_modules/canvaskit-wasm/bin",
+        "staticOutDir": "canvaskit-wasm"
+      }
+    ]
   }
 }
