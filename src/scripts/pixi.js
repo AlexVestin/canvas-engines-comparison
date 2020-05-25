@@ -1,5 +1,5 @@
-import Engine from './engine';
-import * as PIXI from 'pixi.js';
+import Engine from "./engine";
+import * as PIXI from "pixi.js";
 
 class PixiEngine extends Engine {
   constructor() {
@@ -9,10 +9,11 @@ class PixiEngine extends Engine {
     this.app = new PIXI.Application({
       width: this.width,
       height: this.height,
-      backgroundColor: 0xFFFFFF,
-      antialias: true,
+      backgroundColor: 0xffffff,
+      antialias: true
     });
     this.content.appendChild(this.app.view);
+    this.wrapGL(this.app.view);
   }
 
   onTick() {
@@ -53,10 +54,10 @@ class PixiEngine extends Engine {
     }
 
     this.app.ticker.add(this.onTick, this);
-  };
+  }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   const engine = new PixiEngine();
   engine.render();
 });
